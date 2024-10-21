@@ -62,11 +62,15 @@
               <a href="https://scholar.google.com/citations?user=p-h_BvcAAAAJ&hl=en" style="color:#008AD7;font-weight:normal;">Vikas Chandra</a><sup style="color:#6fbf73;">2</sup></span>
             </div>
 
+            <br>
+
             <div class="is-size-5 publication-authors">
               <span class="author-block"><sup style="color:#ed4b82;">1</sup>King Abdullah University of Science and Technology</span><br>
               <span class="author-block"><sup style="color:#6fbf73;">2</sup>Meta AI Research</span>
               <span class="author-block"><sup style="color:#ffac33;">3</sup>Korea University</span>
             </div>
+
+            <br>
 
                   <div class="content has-text-centered">
                     <div class="publication-links">
@@ -120,6 +124,30 @@
   </div>
 </section>
 
+<!-- Teaser video-->
+<section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+      <video poster="" id="tree" autoplay controls muted loop height="100%">
+        <source src="https://longvu.s3.amazonaws.com/assets/combine.mov"
+        type="video/mp4">
+      </video>
+
+      <script>
+        // Wait until the page is loaded
+        window.onload = function() {
+          // Get the video element by its id
+          var video = document.getElementById("tree");
+
+          // Set the default playback speed (e.g., 1.5x speed)
+          video.playbackRate = 0.5;
+        };
+      </script>
+    </div>
+  </div>
+</section>
+<!-- End teaser video -->
+
 <!-- Paper abstract -->
 <section class="section hero">
   <div class="container is-max-desktop">
@@ -128,7 +156,7 @@
         <h2 class="title is-3">Abstract</h2>
         <div class="content has-text-justified">
           <p>
-            Multimodal Large Language Models (MLLMs) have shown promising progress in understanding and analyzing video content. However, processing long videos remains a significant challenge constrained by the limited context length. To address this limitation, we propose <strong>LongVU</strong>, a spatiotemporal adaptive compression mechanism to reduce the number of video tokens while preserving visual details of long videos. Our idea is based on leveraging cross-modal query and inter-frame dependencies to adaptively reduce temporal and spatial redundancy in videos. Specifically, we leverage DINOv2 features to remove redundant frames that exhibit high similarity. Then we utilize text-guided cross-modal query for selective frame feature reduction. Further, we perform spatial token reduction across frames based on their temporal dependencies. Our adaptive compression strategy effectively processes a large number of frames with little visual information loss within limited context length. Our LongVU consistently surpass existing methods across a variety of video understanding benchmarks, especially on hour-long video understanding tasks such as VideoMME and MLVU. Given a light-weight LLM, our LongVU also scales effectively into a smaller size with state-of-the-art video understanding performance.
+            Multimodal Large Language Models (MLLMs) have shown promising progress in understanding and analyzing video content. However, processing long videos remains a significant challenge constrained by the given context length. To address this limitation, we propose <strong>LongVU</strong>, a spatiotemporal adaptive compression mechanism to reduce the number of video tokens while preserving visual details of long videos. Our idea is based on leveraging cross-modal query and inter-frame dependencies to adaptively reduce temporal and spatial redundancy in videos. Specifically, we leverage DINOv2 features to remove redundant frames that exhibit high similarity. Then we utilize text-guided cross-modal query for selective frame feature reduction. Further, we perform spatial token reduction across frames based on their temporal dependencies. Our adaptive compression strategy effectively processes a large number of frames with little visual information loss within limited context length. Our LongVU consistently surpass existing methods across a variety of video understanding benchmarks, especially on hour-long video understanding tasks such as VideoMME and MLVU. Given a light-weight LLM, our LongVU also scales effectively into a smaller size with state-of-the-art video understanding performance.
           </p>
         </div>
       </div>
@@ -318,22 +346,6 @@
   </div>
 </section>
 <!-- End image carousel -->
-
-<!-- Teaser video-->
-<!-- <section class="hero teaser">
-  <div class="container is-max-desktop">
-    <div class="hero-body">
-      <video poster="" id="tree" autoplay controls muted loop height="100%">
-        <source src="static/videos/banner_video.mp4"
-        type="video/mp4">
-      </video>
-      <h2 class="subtitle has-text-centered">
-        Brief video introduction about <span style="font-weight:bold;">BLINK Benchmark.</span>.
-      </h2>
-    </div>
-  </div>
-</section> -->
-<!-- End teaser video -->
 
 <section class="section hero">
   <div class="container is-max-desktop">
