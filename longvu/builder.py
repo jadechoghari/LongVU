@@ -85,7 +85,7 @@ def load_pretrained_model(
             tokenizer = AutoTokenizer.from_pretrained(model_base, use_fast=False)
             print("Loading Cambrian from base model...")
             model = CambrianLlamaForCausalLM.from_pretrained(
-                model_base, low_cpu_mem_usage=True, config=lora_cfg_pretrained, **kwargs
+                model_base, low_cpu_mem_usage=True, trust_remote_code=True, config=lora_cfg_pretrained, **kwargs
             )
             token_num, tokem_dim = model.lm_head.out_features, model.lm_head.in_features
             if model.lm_head.weight.shape[0] != token_num:
@@ -143,7 +143,7 @@ def load_pretrained_model(
             tokenizer = AutoTokenizer.from_pretrained(model_base, use_fast=False)
             cfg_pretrained = AutoConfig.from_pretrained(model_path)
             model = CambrianLlamaForCausalLM.from_pretrained(
-                model_base, low_cpu_mem_usage=True, config=cfg_pretrained, **kwargs
+                model_base, low_cpu_mem_usage=True, trust_remote_code=True, config=cfg_pretrained, **kwargs
             )
 
             mm_projector_weights = torch.load(
@@ -157,13 +157,13 @@ def load_pretrained_model(
             if "qwen" in model_name.lower():
                 tokenizer = AutoTokenizer.from_pretrained(model_path)
                 model = CambrianQwenForCausalLM.from_pretrained(
-                    model_path, low_cpu_mem_usage=True, **kwargs
+                    model_path, trust_remote_code=True, low_cpu_mem_usage=True, **kwargs
                 )
             else:
                 print(f"Loading Cambrian from {model_path}")
                 tokenizer = AutoTokenizer.from_pretrained(model_path, use_fast=False)
                 model = CambrianLlamaForCausalLM.from_pretrained(
-                    model_path, low_cpu_mem_usage=True, **kwargs
+                    model_path, low_cpu_mem_usage=True, trust_remote_code=True, **kwargs
                 )
     else:
         # Load language model
